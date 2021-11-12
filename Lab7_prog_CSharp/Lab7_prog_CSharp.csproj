@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Avto.cs" />
     <Compile Include="Koleso.cs" />
+    <Compile Include="Korobka.cs" />
+    <Compile Include="Motor.cs" />
+    <Compile Include="Obchee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -144,38 +144,6 @@ namespace info_koleso
 			}
 		}
 
-		public void koleso_diametr()
-		{
-			if (visota >= 0)
-			{
-				Console.Write("Введите новый диаметр колеса: ");
-				do
-				{
-					diametr = Convert.ToInt32(Console.ReadLine());
-					if (diametr < 0)
-					{
-						Console.Write("Неверно введено значение диаметра, попробуйте еще: ");
-					}
-				} while (diametr < 0);
-				Console.WriteLine("Диаметр колеса успешно изменен");
-			}
-			else
-			{
-				Console.WriteLine("Информация о колесе еще не была добавлена");
-			}
-		}
-		public Int32 koleso_get()
-		{
-			if (this.diametr >= 0)
-			{
-				return 1;
-			}
-			else
-			{
-				return 0;
-			}
-		}
-
 		private int visota = -1;
 		private int shirina = -1;
 		private int diametr = -1;
