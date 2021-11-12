@@ -16,7 +16,7 @@ namespace Lab7_prog_CSharp
             Kolesiko.Diametr = -10;
             Kolesiko.Visota = 80;
             Kolesiko.Shirina = 100;
-            a = Kolesiko.Diametr;
+            a = Kolesiko.Diametr; 
             b = Kolesiko.Visota; ;
             c = Kolesiko.Shirina;
             Kolesiko.prosmotr_koleso();
