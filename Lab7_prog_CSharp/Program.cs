@@ -25,7 +25,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Автомобиль\n6) Свойства полей\n7) Классы\n8) Массив\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Автомобиль\n6) Свойства полей\n7) Классы\n8) Массив\n9) Перегрузки\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -191,6 +191,24 @@ namespace Lab7_prog_CSharp
 						Korobka_Mass.Korobka_Massiv(Korobas);
 					}
 					Korobka_Mass.Korobka_Massiv_Prosmotr();
+					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
+					Console.ReadKey(true);
+				}
+				else if (glmenu == '9')
+                {
+					Console.Clear();
+					Motor Mot1 = new Motor();
+					Motor Mot2 = new Motor();
+					Motor Mot3 = new Motor();
+					Mot1.new_motor("stok", 150, 2, 4, 10, 4);
+					Console.WriteLine("Двигатель №1");
+					Mot1.prosmotr_motor();
+					Mot2.new_motor("stok", 249, 3.5, 4, 10, 4);
+					Console.WriteLine("\n\nДвигатель №2");
+					Mot2.prosmotr_motor();
+					Mot3 = Mot1 + Mot2;
+					Console.WriteLine("\n\nДвигатель №3");
+					Mot3.prosmotr_motor();
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}

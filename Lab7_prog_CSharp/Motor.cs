@@ -8,7 +8,15 @@ namespace info_motor
 	class Motor
 	{
 		
+		public static Motor operator +(Motor mot1, Motor mot2)
+        {
 
+			Motor novii = new Motor();
+			novii = mot1;
+			novii.koni = novii.koni + mot2.koni;
+			novii.rab_obem = novii.rab_obem + mot2.rab_obem;
+			return (novii);
+        }
 
 		public void New_Motor_Info()
 		{
@@ -88,15 +96,34 @@ namespace info_motor
 
 		public void new_motor(string name, double koni, double rab_obem, double klapan, double rasxod, double kol_vo_cilindr)
 		{
-			this.koni = koni;
-			this.kol_vo_cilindr = kol_vo_cilindr;
-			this.name = name;
-			this.rab_obem = rab_obem;
-			this.rasxod = rasxod;
-			this.klapan = klapan;
-		}
+			if (koni != 0)
+			{
+				this.koni = koni;
+			}
+			if (kol_vo_cilindr != 0)
+            {
+				this.kol_vo_cilindr = kol_vo_cilindr;
+			}
+			if (name != " ")
+			{
+				this.name = name;
+			}
+			if (rab_obem != 0)
+			{
+				this.rab_obem = rab_obem;
+			}
+			if (rasxod != 0)
+			{
+				this.rasxod = rasxod;
+			}
+			if (klapan != 0)
+			{
+				this.klapan = klapan;
+			}
+        }
 
-		private string name = "";
+
+        private string name = "";
 		private double koni = -1;
 		private double rab_obem = -1;
 		private double rasxod = -1;
