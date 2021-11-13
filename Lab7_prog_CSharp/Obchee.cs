@@ -7,7 +7,21 @@ namespace info_obchee
 {
 	class Obchee
 	{
+
+public void Benzobak_Obch_1(ref double Benzo)
+		{
+			//Benzo = 0;
+			Benzo = Benzo + this.obem_benzobaka;
+		}
 		
+
+
+		public void Massa_Obch(out double Massa)
+        {
+			Massa = 0;
+			Massa = this.massa;
+
+		}
 
 		public void new_obchee_info()
 		{
@@ -107,12 +121,12 @@ namespace info_obchee
 			}
 		}
 
-		private string name = "";
-		private string tip_privoda = "";
-		private string tip_topliva = "";
-		private double massa = -1;
-		private double obem_benzobaka = -1;
-		private double kolvo_mest = -1;
-		private double razgon_do_100 = -1;
+		private string name = "Toyota";
+		private string tip_privoda = "4WD";
+		private string tip_topliva = "Бензин";
+		private double massa = 1500;
+		private double obem_benzobaka = 78;
+		private double kolvo_mest = 5;
+		private double razgon_do_100 = 8;
 	}
 }

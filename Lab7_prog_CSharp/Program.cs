@@ -25,7 +25,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Автомобиль\n6) Свойства полей\n7) Классы\n8) Массив\n9) Перегрузки\n0) Строки\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Out ref\n6) Свойства полей\n7) Классы\n8) Массив\n9) Перегрузки\n0) Строки\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -121,6 +121,21 @@ namespace Lab7_prog_CSharp
 					Console.WriteLine("Информация о колесах успешно добавлена");
 				}
 				else if (glmenu == '5')
+                {
+					Console.Clear();
+					double Massa;
+					Obchie.Massa_Obch(out Massa);
+					Console.WriteLine("Масса (out): " + Massa);
+
+					double Benzo;
+					Benzo = 0;
+					Obchie.Benzobak_Obch_1(ref Benzo);
+					Console.WriteLine("\n\nОбъем бензобака (ref): " + Benzo);
+					
+					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
+					Console.ReadKey(true);
+				}
+				/*else if (glmenu == '5')
 				{
 					Console.Clear();
 					Obchie.new_obchee(1500, 65, 7, 5, "Subaru", "Бензин", "4WD");
@@ -130,7 +145,7 @@ namespace Lab7_prog_CSharp
 					Avt.new_avto(Motorishe, Obchie, Korobas, Kolesiko);
 					Console.WriteLine("Автомобиль успешно собран");
 					Avt.prosmotr_avto();
-				}
+				}*/
 				else if (glmenu == '6')
                 {
 					Console.Clear();
