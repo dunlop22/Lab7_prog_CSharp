@@ -7,7 +7,27 @@ namespace info_korobka
 {
 	class Korobka
 	{
-		
+
+		public void Korobka_Massiv(Korobka kor1)
+		{
+			if (kolvo_korobok > 0)
+			{
+				Array.Resize(ref Korobka_Mass, kolvo_korobok + 1);
+			}
+			Korobka_Mass[kolvo_korobok] = kor1;
+			kolvo_korobok++;
+		}
+
+		public void Korobka_Massiv_Prosmotr()
+        {
+			for (int i = 0; i < kolvo_korobok; i++)
+            {
+				Console.WriteLine();
+				Korobka_Mass[i].prosmotr_korobka();
+			}
+		}
+
+
 		public void Massiv_plus(int n)
         {
 			Korobka[] Korobka_Mass_2 = new Korobka[n + 1];
@@ -34,7 +54,7 @@ namespace info_korobka
 			Console.Write("Введите количество передач коробки: ");
 			do
 			{
-				kolvo_peredach = Convert.ToDouble(Console.ReadLine());
+				kolvo_peredach = Convert.ToInt32(Console.ReadLine());
 				if (kolvo_peredach < 0)
 				{
 					Console.Write("Неверно введено значение количества передач, попробуйте еще: ");
@@ -42,7 +62,7 @@ namespace info_korobka
 			} while (kolvo_peredach < 0);
 		}
 
-		public void korobka_new(string tip_korobki, double kolvo_peredach)
+		public void korobka_new(string tip_korobki, int kolvo_peredach)
 		{
 			this.kolvo_peredach = kolvo_peredach;
 			this.tip_korobki = tip_korobki;
@@ -60,8 +80,9 @@ namespace info_korobka
 			}
 		}
 
-		private double kolvo_peredach = -1;
+		private int kolvo_peredach = -1;
 		private string tip_korobki = "";
+		private int kolvo_korobok = 0;
 		private Korobka[] Korobka_Mass = new Korobka[2];
 	}
 }

@@ -25,7 +25,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Автомобиль\n6) Свойства полей\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Автомобиль\n6) Свойства полей\n7) Классы\n8) Массив\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -152,8 +152,48 @@ namespace Lab7_prog_CSharp
 				}
 				else if (glmenu == '7')
                 {
-
-                }					
+					Console.Clear();
+					Koleso Koles1 = new Koleso();
+					Koleso Koles2 = new Koleso();
+					Koles1.new_koleso(17, 55, 225, "Литье");
+					Koles2 = Koles1;
+					Console.WriteLine("Колесо №1:");
+					Koles1.prosmotr_koleso();
+					Console.WriteLine("\nКолесо №2:");
+					Koles2.prosmotr_koleso();
+					Koles1.Shirina = 100;
+					Koles1.Visota = 30;
+					Koles1.Diametr = 13;
+					Console.WriteLine("\n\nКолесо №1:");
+					Koles1.prosmotr_koleso();
+					Console.WriteLine("\nКолесо №2:");
+					Koles2.prosmotr_koleso();
+					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
+					Console.ReadKey(true);
+				}
+				else if (glmenu == '8')
+                {
+					Console.Clear();
+					Console.Write("Введите количество коробок передач для создания массива: ");
+					int n;
+					do
+					{
+						n = Convert.ToInt32(Console.ReadLine());
+						if (n < 0)
+						{
+							Console.Write("Неверно введено значение, попробуйте еще: ");
+						}
+					} while (n < 0);
+					Korobas.korobka_new("АКПП", 6);
+					Korobka Korobka_Mass = new Korobka();
+					for (int i = 0 ; i < n; i++)
+                    {
+						Korobka_Mass.Korobka_Massiv(Korobas);
+					}
+					Korobka_Mass.Korobka_Massiv_Prosmotr();
+					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
+					Console.ReadKey(true);
+				}
 			} while (glmenu != 27);
 		}
     }

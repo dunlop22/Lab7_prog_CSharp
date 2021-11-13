@@ -7,12 +7,7 @@ namespace info_motor
 {
 	class Motor
 	{
-		public string name = "";
-		public double koni = -1;
-		public double rab_obem = -1;
-		public double rasxod = -1;
-		public double kol_vo_cilindr = -1;
-		public double klapan = -1;
+		
 
 
 		public void New_Motor_Info()
@@ -101,6 +96,12 @@ namespace info_motor
 			this.klapan = klapan;
 		}
 
-
+		private string name = "";
+		private double koni = -1;
+		private double rab_obem = -1;
+		private double rasxod = -1;
+		private double kol_vo_cilindr = -1;
+		private double klapan = -1;
+		
 	}
 }
