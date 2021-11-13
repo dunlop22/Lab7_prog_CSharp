@@ -196,19 +196,50 @@ namespace Lab7_prog_CSharp
 				}
 				else if (glmenu == '9')
                 {
+					do
+					{
+						Console.Clear();
+						Console.WriteLine("1) +\n2) ++ (префиксный)\n3) ++ (постфиксный)");
+						menu = Console.ReadKey().KeyChar;
+					} while (menu < '1' && menu > '3');
 					Console.Clear();
-					Motor Mot1 = new Motor();
-					Motor Mot2 = new Motor();
-					Motor Mot3 = new Motor();
-					Mot1.new_motor("stok", 150, 2, 4, 10, 4);
-					Console.WriteLine("Двигатель №1");
-					Mot1.prosmotr_motor();
-					Mot2.new_motor("stok", 249, 3.5, 4, 10, 4);
-					Console.WriteLine("\n\nДвигатель №2");
-					Mot2.prosmotr_motor();
-					Mot3 = Mot1 + Mot2;
-					Console.WriteLine("\n\nДвигатель №3");
-					Mot3.prosmotr_motor();
+					if (menu == '1')
+					{
+						
+						Motor Mot1 = new Motor();
+						Motor Mot2 = new Motor();
+						Motor Mot3 = new Motor();
+						Mot1.new_motor("stok", 150, 2, 4, 10, 4);
+						Console.WriteLine("Двигатель №1");
+						Mot1.prosmotr_motor();
+						Mot2.new_motor("stok", 249, 3.5, 4, 10, 4);
+						Console.WriteLine("\n\nДвигатель №2");
+						Mot2.prosmotr_motor();
+						Mot3 = Mot1 + Mot2;
+						Console.WriteLine("\n\nДвигатель №3");
+						Mot3.prosmotr_motor();
+						Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
+						Console.ReadKey(true);
+					} 
+					if (menu == '2' || menu == '3')
+                    {
+						Koleso Kol1 = new Koleso();
+						Koleso Kol2 = new Koleso();
+						Console.WriteLine("Колесо №1 ДО: ");
+						Kol1.prosmotr_koleso();
+						if (menu == '2')
+						{
+							Kol2 = ++Kol1;
+						}
+                        else
+                        {
+							Kol2 = Kol1++;
+                        }
+						Console.WriteLine("Колесо №1 ПОСЛЕ : ");
+						Kol1.prosmotr_koleso();
+						Console.WriteLine("Колесо №2 ПОСЛЕ: ");
+						Kol2.prosmotr_koleso();
+					}
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}

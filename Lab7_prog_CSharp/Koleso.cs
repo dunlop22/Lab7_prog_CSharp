@@ -7,7 +7,14 @@ namespace info_koleso
 {
 	class Koleso
 	{
-		
+		public static Koleso operator ++(Koleso Kol1)
+		{
+			Koleso kol = new Koleso();
+			kol.diametr = Kol1.diametr + 1;
+			return kol;
+		}
+
+
 		public int Diametr
         {
 			get 
@@ -134,19 +141,12 @@ namespace info_koleso
 
 		public void prosmotr_koleso()
 		{
-			if (visota >= 0)
-			{
-				Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska);
-			}
-			else
-			{
-				Console.WriteLine("Информация о колесе еще не была добавлена");
-			}
+			Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska);
 		}
 
-		private int visota = -1;
-		private int shirina = -1;
-		private int diametr = -1;
-		private string tip_diska = "";
+		private int visota = 55;
+		private int shirina = 225;
+		private int diametr = 17;
+		private string tip_diska = "Литье";
 	}
 }
