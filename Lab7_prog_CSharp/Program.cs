@@ -25,7 +25,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Автомобиль\n6) Свойства полей\n7) Классы\n8) Массив\n9) Перегрузки\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Автомобиль\n6) Свойства полей\n7) Классы\n8) Массив\n9) Перегрузки\n0) Строки\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -240,6 +240,34 @@ namespace Lab7_prog_CSharp
 						Console.WriteLine("Колесо №2 ПОСЛЕ: ");
 						Kol2.prosmotr_koleso();
 					}
+					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
+					Console.ReadKey(true);
+				}
+				else if (glmenu == '0')
+                {
+					Console.Clear();
+					int n;
+					string country = "Japan";
+					Console.Write("Введите количество создаваемых колес: ");
+					do
+					{
+							n = Convert.ToInt32(Console.ReadLine());
+							if (n < 0)
+							{
+								Console.Write("Неверно введено значение, попробуйте еще: ");
+							}
+					} while (n <= 0 && n > 20);
+					Koleso Kolesiko1 = new Koleso();
+					//Koleso Kolesiko1 = new Koleso();
+					Koleso Koles1 = new Koleso();
+					
+					for (int i = 0; i < n; i++)
+					{
+						Koles1.new_koleso(30 , 120, 55, "Литье " + country);
+						Kolesiko1.Koleso_Massiv(i, Koles1);
+					}
+					Kolesiko1.Koleso_Massiv_Prosmotr(n);
+					
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}

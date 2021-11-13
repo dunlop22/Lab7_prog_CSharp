@@ -14,6 +14,20 @@ namespace info_koleso
 			return kol;
 		}
 
+		public void Koleso_Massiv_Prosmotr(int n)
+		{
+			for (int i = 0; i < n; i++)
+			{
+				Console.WriteLine();
+				Koleso_Mass[i].prosmotr_koleso();
+			}
+		}
+
+		public void Koleso_Massiv(int n, Koleso kol1)
+		{
+			Array.Resize(ref Koleso_Mass, n + 1);
+			Koleso_Mass[n] = kol1;
+		}
 
 		public int Diametr
         {
@@ -148,5 +162,6 @@ namespace info_koleso
 		private int shirina = 225;
 		private int diametr = 17;
 		private string tip_diska = "Литье";
+		private Koleso[] Koleso_Mass = new Koleso[1];
 	}
 }
