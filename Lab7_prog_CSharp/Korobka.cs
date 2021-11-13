@@ -7,9 +7,17 @@ namespace info_korobka
 {
 	class Korobka
 	{
-		public double kolvo_peredach = -1;
-		public string tip_korobki = "";
+		
+		public void Massiv_plus(int n)
+        {
+			Korobka[] Korobka_Mass_2 = new Korobka[n + 1];
+			for (int i = 0; i < n; i++)
+			{
+				Korobka_Mass_2[i] = Korobka_Mass[i];
+			}
+			Korobka_Mass = Korobka_Mass_2;
 
+		}
 
 		public void new_korobka_info()
 		{
@@ -51,5 +59,9 @@ namespace info_korobka
 				Console.WriteLine("Информация о коробке передач отсутствует");
 			}
 		}
+
+		private double kolvo_peredach = -1;
+		private string tip_korobki = "";
+		private Korobka[] Korobka_Mass = new Korobka[2];
 	}
 }

@@ -135,9 +135,12 @@ namespace Lab7_prog_CSharp
                 {
 					Console.Clear();
 					int a, b, c;
-					a = 100;
-					b = -10;
-					c = 95;
+					Console.Write("Введите ширину колеса: ");
+					a = Convert.ToInt32(Console.ReadLine());
+					Console.Write("Введите диаметр колеса: ");
+					b = Convert.ToInt32(Console.ReadLine());
+					Console.Write("Введите высоту колеса: ");
+					c = Convert.ToInt32(Console.ReadLine());
 					Kolesiko.Shirina = a;
 					Kolesiko.Diametr = b;
 					Kolesiko.Visota = c;
@@ -147,6 +150,10 @@ namespace Lab7_prog_CSharp
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}
+				else if (glmenu == '7')
+                {
+
+                }					
 			} while (glmenu != 27);
 		}
     }
