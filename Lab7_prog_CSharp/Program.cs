@@ -125,7 +125,10 @@ namespace Lab7_prog_CSharp
 					}
 					else if (menu == '3')
                     {
-						Koleso.koleso_del();
+						if (Koleso.kolvo_koles() > 0)
+						{
+							Koleso.koleso_del();
+						}
                     }
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
