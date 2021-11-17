@@ -104,21 +104,31 @@ namespace Lab7_prog_CSharp
 					do
 					{
 						Console.Clear();
-						Console.WriteLine("1) Ввод собственных данных о колесах\n2) Создание по конструктору");
+						string s;
+						Console.WriteLine("Последний уникальный ID: " + (s = Koleso.id_return().ToString("000000")));
+						Console.WriteLine("\nОбщее количество созданных колес: " + Koleso.kolvo_koles());
+
+						Console.WriteLine("\n\n1) Ввод собственных данных о колесах\n2) Создание по конструктору\n3) Удаление");
 						menu = Console.ReadKey().KeyChar;
-					} while (menu != '1' && menu != '2');
-					Console.Clear();
+					} while (menu < '1' || menu > '3');
 					if (menu == '1')
 					{
 						Kolesiko.new_koleso_info();
+						Kolesiko.prosmotr_koleso();
+						Console.WriteLine("Информация о колесах успешно добавлена");
 					}
-					else
+					else if (menu == '2')
 					{
 						Kolesiko.new_koleso(225, 55, 17, "Литье");
+						Kolesiko.prosmotr_koleso();
+						Console.WriteLine("Информация о колесах успешно добавлена");
 					}
-					Console.Clear();
-					Kolesiko.prosmotr_koleso();
-					Console.WriteLine("Информация о колесах успешно добавлена");
+					else if (menu == '3')
+                    {
+						Koleso.koleso_del();
+                    }
+					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
+					Console.ReadKey(true);
 				}
 				else if (glmenu == '5')
                 {

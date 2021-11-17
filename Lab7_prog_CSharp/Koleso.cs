@@ -143,25 +143,54 @@ namespace info_koleso
 					Console.Write("Неверно введен тип колесного диска, попробуйте еще: ");
 				}
 			} while (tip_diska == "");
+			kolvo_kolesa = kolvo_kolesa + 1;
+			id_new(id);
 		}
 
 		public void new_koleso(Int32 visota, Int32 shirina, Int32 diametr, string tip_diska)
 		{
+			id_new(id);
 			this.tip_diska = tip_diska;
 			this.shirina = shirina;
 			this.visota = visota;
 			this.diametr = diametr;
+			kolvo_kolesa = kolvo_kolesa + 1;
 		}
 
 		public void prosmotr_koleso()
 		{
-			Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska);
+			string s;
+			Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nID: " + (s = id_return().ToString("000000")) + "\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska);
 		}
+
+		public static int id_return()
+        {
+			return id_kolesa;
+        }
+
+		public static void id_new(int id)
+        {
+			id_kolesa = id_kolesa + 1;
+			id = id_kolesa;
+		}
+
+		public static int kolvo_koles()
+        {
+			return kolvo_kolesa;
+        }
+		public static void koleso_del()
+        {
+			kolvo_kolesa = kolvo_kolesa - 1;
+        }
 
 		private int visota = 55;
 		private int shirina = 225;
 		private int diametr = 17;
 		private string tip_diska = "Литье";
 		private Koleso[] Koleso_Mass = new Koleso[1];
+		private int id;
+		private static int kolvo_kolesa = 0;
+		private static int id_kolesa = 0;
+
 	}
 }
