@@ -160,7 +160,7 @@ namespace info_koleso
 		public void prosmotr_koleso()
 		{
 			string s;
-			Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nID: " + (s = id_return().ToString("000000")) + "\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska);
+			Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nID: " + (id.ToString("000000")) + "\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska);
 		}
 
 		public static int id_return()
@@ -182,6 +182,28 @@ namespace info_koleso
         {
 			kolvo_kolesa = kolvo_kolesa - 1;
         }
+
+		//конструктор без параметров
+		public Koleso()
+        {
+			this.Diametr = 17;
+			this.shirina = 225;
+			this.visota = 55;
+			this.tip_diska = "Литье";
+			this.id = 050120 + kolvo_kolesa;
+			kolvo_kolesa = kolvo_kolesa + 1;
+		}
+
+		//Конструктор с одним параметром
+		public Koleso(int diametr)
+        {
+			this.diametr = diametr;
+			this.shirina = 225;
+			this.visota = 55;
+			this.tip_diska = "Литье";
+			this.id = 050120 + kolvo_kolesa;
+			kolvo_kolesa = kolvo_kolesa + 1;
+		}
 
 		private int visota = 55;
 		private int shirina = 225;

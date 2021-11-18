@@ -25,7 +25,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Out ref\n6) Свойства полей\n7) Классы\n8) Массив\n9) Перегрузки\n0) Строки\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Инициализация массива конструктором с одним параметром полей\n7) Классы\n8) Массив\n9) Перегрузки\n0) Строки\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -133,8 +133,22 @@ namespace Lab7_prog_CSharp
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}
+
+
 				else if (glmenu == '5')
                 {
+					Console.Clear();
+					Koleso koli1 = new Koleso();
+					Koleso koli = new Koleso(12);
+					Console.WriteLine("Конструктор без параметров: ");
+					koli1.prosmotr_koleso();
+					Console.WriteLine("\n\nКонструктор с параметром: ");
+					koli.prosmotr_koleso();
+					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
+					Console.ReadKey(true);
+				}
+
+                /*{
 					Console.Clear();
 					double Massa;
 					Obchie.Massa_Obch(out Massa);
