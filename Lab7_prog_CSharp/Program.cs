@@ -25,7 +25,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Инициализация массива конструктором с одним параметром полей\n7) Классы\n8) Массив\n9) Перегрузки\n0) Строки\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Инициализация массива конструктором с одним параметром полей\n7) Конструктор копирования\n8) Массив\n9) Перегрузки\n0) Строки\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -176,6 +176,7 @@ namespace Lab7_prog_CSharp
 				}*/
 				else if (glmenu == '6')
                 {
+					Console.Clear();
 					Koleso[] koleso_mass = new Koleso[3];
 					for (int i = 0;i < 3;  i++)
                     {

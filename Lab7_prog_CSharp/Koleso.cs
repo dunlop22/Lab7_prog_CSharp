@@ -186,7 +186,7 @@ namespace info_koleso
 		//конструктор без параметров
 		public Koleso()
         {
-			this.Diametr = 17;
+			this.diametr = 17;
 			this.shirina = 225;
 			this.visota = 55;
 			this.tip_diska = "Литье";
