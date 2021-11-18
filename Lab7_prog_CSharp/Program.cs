@@ -148,6 +148,7 @@ namespace Lab7_prog_CSharp
 					Console.ReadKey(true);
 				}
 
+
                 /*{
 					Console.Clear();
 					double Massa;
@@ -175,6 +176,17 @@ namespace Lab7_prog_CSharp
 				}*/
 				else if (glmenu == '6')
                 {
+					Koleso[] koleso_mass = new Koleso[3];
+					for (int i = 0;i < 3;  i++)
+                    {
+						koleso_mass[i] = new Koleso(12);
+						Console.WriteLine("\nКолесо №" + (i + 1));
+						koleso_mass[i].prosmotr_koleso();
+                    }
+					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
+					Console.ReadKey(true);
+				}
+                /*{
 					Console.Clear();
 					int a, b, c;
 					Console.Write("Введите ширину колеса: ");
@@ -192,6 +204,9 @@ namespace Lab7_prog_CSharp
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}
+				*/
+
+
 				else if (glmenu == '7')
                 {
 					Console.Clear();
