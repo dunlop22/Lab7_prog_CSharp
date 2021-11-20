@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+
 
 namespace info_koleso
 {
-	class Koleso
+    class Koleso
 	{
 		public static Koleso operator ++(Koleso Kol1)
 		{
@@ -99,41 +101,55 @@ namespace info_koleso
 			}
         }
 
+
+
+		public int auto_othoshenie()
+        {
+			if (visota == 0)
+            {
+				throw new Exception("\nВысота равна 0. Подсчет невозможен\n");
+			}
+			return (shirina * visota / 100);
+        }
+
+		public int check_param(int min, int max, ref int orig)
+        {
+			int temp;
+			try
+			{
+				temp = Convert.ToInt32(Console.ReadLine());
+				if (temp < min)
+				{
+					throw new Exception ("Введено отрицательное значение.");
+				}
+				else if (temp > max)
+				{
+					throw new Exception("Введено слишком большое значение.");
+				}
+				Console.Write("Значение удовлетворяет условию. \n\n");
+				orig = temp;
+				return 1;
+			}
+			catch (Exception e)
+            {
+				Console.Write(e.Message + "\nПовторите попытку: ");
+			}
+			return 0;
+		}
+
 		public void new_koleso_info()
 		{
+			Console.Clear();
 			Console.Write("Добавление информации о колесах автомобиля\n\nВведите ширину колеса: ");
 
-			do
-			{
-				shirina = Convert.ToInt32(Console.ReadLine());
-				if (shirina < 0)
-				{
-					Console.Write("Неверно введено значение ширины колеса, попробуйте еще: ");
-				}
-			} while (shirina < 0);
-
+			do { } while (check_param(0, 300, ref shirina) == 0);
 
 			Console.Write("Введите высоту колеса: ");
-			do
-			{
-				visota = Convert.ToInt32(Console.ReadLine());
-				if (visota < 0)
-				{
-					Console.Write("Неверно введено значение высоты колеса, попробуйте еще: ");
-				}
-			} while (visota < 0);
+			do { } while (check_param(0, 70, ref visota) == 0);
 
 			Console.Write("Введите диаметр колеса в дюймах: ");
-			do
-			{
-				diametr = Convert.ToInt32(Console.ReadLine());
-				if (diametr < 0)
-				{
-					Console.Write("Неверно введено значение диаметра колеса, попробуйте еще: ");
-				}
-			} while (diametr < 0);
-
-
+			do { } while (check_param(0, 25, ref diametr) == 0);
+			
 			Console.Write("Введите тип колесного диска (штамповка/литье/ковка): ");
 			do
 			{
@@ -143,7 +159,17 @@ namespace info_koleso
 					Console.Write("Неверно введен тип колесного диска, попробуйте еще: ");
 				}
 			} while (tip_diska == "");
-			kolvo_kolesa = kolvo_kolesa + 1;
+
+			try
+			{
+				othoschenie = auto_othoshenie();
+			}
+			catch (Exception e)
+			{
+				Console.Write(e.Message + "\nПовторите попытку: ");
+			}
+
+            kolvo_kolesa = kolvo_kolesa + 1;
 			id_new(id);
 		}
 
@@ -161,6 +187,10 @@ namespace info_koleso
 		{
 			string s;
 			Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nID: " + (id.ToString("000000")) + "\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska);
+			if (this.othoschenie != 0)
+			{
+				Console.WriteLine("Высота колеса (мм): " + othoschenie);
+			}
 		}
 
 		public static int id_return()
@@ -192,6 +222,7 @@ namespace info_koleso
 			this.tip_diska = "Литье";
 			this.id = 050120 + kolvo_kolesa;
 			kolvo_kolesa = kolvo_kolesa + 1;
+			this.othoschenie = 0;
 		}
 
 		//Конструктор с одним параметром
@@ -203,11 +234,13 @@ namespace info_koleso
 			this.tip_diska = "Литье";
 			this.id = 050120 + kolvo_kolesa;
 			kolvo_kolesa = kolvo_kolesa + 1;
+			this.othoschenie = 0;
 		}
 
 		private int visota = 55;
 		private int shirina = 225;
 		private int diametr = 17;
+		private int othoschenie;
 		private string tip_diska = "Литье";
 		private Koleso[] Koleso_Mass = new Koleso[1];
 		private int id;
