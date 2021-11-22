@@ -101,7 +101,15 @@ namespace info_koleso
 			}
         }
 
+		public String dannii()
+        {
+			return (this.shirina + "/" + this.visota + "/" + this.diametr);
+        }
 
+		public int diametr_info()
+        {
+			return (this.diametr);
+        }
 
 		public int auto_othoshenie()
         {
@@ -186,7 +194,7 @@ namespace info_koleso
 		public void prosmotr_koleso()
 		{
 			string s;
-			Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nID: " + (id.ToString("000000")) + "\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska);
+			Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska);
 			if (this.othoschenie != 0)
 			{
 				Console.WriteLine("Высота колеса (мм): " + othoschenie);

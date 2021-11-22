@@ -12,6 +12,26 @@ namespace Lab7_prog_CSharp
 {
     class Program
     {
+		static void table_print(Koleso[,] Kol_Massiv)
+        {
+			for (int i = 0; i < 4; i++)
+			{
+				Console.WriteLine("*************************************************");
+				for (int j = 0; j < 4; j++)
+				{
+					if (Kol_Massiv[i, j].diametr_info() != -1)
+					{
+						Console.Write("* " + Kol_Massiv[i,j].dannii() + " ");
+					}
+					else
+					{
+						Console.Write("*           ");
+					}
+				}
+				Console.WriteLine("*");
+			}
+			Console.WriteLine("*************************************************");
+		}
         static void Main(string[] args)
         {
 			Console.Clear();
@@ -232,7 +252,9 @@ namespace Lab7_prog_CSharp
 				else if (glmenu == '8')
                 {
 					Console.Clear();
-					Console.Write("Введите количество коробок передач для создания массива: ");
+					Console.Write("Введите количество колес для создания массива: ");
+					Koleso[] Kol_Massiv = new Koleso[10];
+					Koleso temp = new Koleso();
 					int n;
 					do
 					{
@@ -241,19 +263,58 @@ namespace Lab7_prog_CSharp
 						{
 							Console.Write("Неверно введено значение, попробуйте еще: ");
 						}
-					} while (n < 0);
-					Korobas.korobka_new("АКПП", 6);
-					Korobka Korobka_Mass = new Korobka();
+					} while (n < 0 || n > 10);
+					
 					for (int i = 0 ; i < n; i++)
                     {
-						Korobka_Mass.Korobka_Massiv(Korobas);
+						temp.new_koleso(30 + i * 5, 130 + i * 5, 13 + i * 2, "Enkei №"  + (i + 1) + " Japan");
+						Kol_Massiv[i] = temp;
+						Kol_Massiv[i].prosmotr_koleso();
 					}
-					Korobka_Mass.Korobka_Massiv_Prosmotr();
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}
 				else if (glmenu == '9')
                 {
+					int podmenu;
+					Console.Clear();
+					//Koleso Kol_Mass[4][4];
+					Koleso[,] Kol_Massiv = new Koleso[4,4];
+					Koleso temp = new Koleso();
+					for (int i =0;i<4;i++)
+                    {
+						for (int j = 0; j < 4; j++)
+                        {
+							Kol_Massiv[i, j] = new Koleso(-1);
+                        }
+
+					}
+					do
+					{
+						temp.new_koleso_info();
+						Console.Clear();
+						table_print(Kol_Massiv);
+						temp.prosmotr_koleso();
+						int m, k;
+						do
+						{
+							Console.Write("Введите номер строки: ");
+							m = Convert.ToInt32(Console.ReadLine());
+						} while (m < 1 || m > 4);
+
+						do
+						{
+							Console.Write("Введите номер столбца: ");
+							k = Convert.ToInt32(Console.ReadLine());
+						} while (k < 1 || k > 4);
+
+						Kol_Massiv[m - 1, k - 1] = temp;
+						Console.Clear();
+						table_print(Kol_Massiv);
+						Console.WriteLine("\n\n0) Выход в меню\n Любая клавиша - продолжение");
+						podmenu = Convert.ToInt32(Console.ReadLine());
+					} while (podmenu != 0);
+					/*
 					do
 					{
 						Console.Clear();
@@ -299,7 +360,7 @@ namespace Lab7_prog_CSharp
 						Kol2.prosmotr_koleso();
 					}
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
-					Console.ReadKey(true);
+					Console.ReadKey(true);*/
 				}
 				else if (glmenu == '0')
                 {
