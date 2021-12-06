@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Avto.cs" />
     <Compile Include="Koleso.cs" />
+    <Compile Include="Koleso_Zapaska.cs" />
     <Compile Include="Korobka.cs" />
     <Compile Include="Motor.cs" />
     <Compile Include="Obchee.cs" />

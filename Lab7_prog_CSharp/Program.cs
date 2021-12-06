@@ -7,6 +7,7 @@ using info_motor;
 using info_korobka;
 using info_obchee;
 using info_avto;
+using info_koleso_zapaska;
 
 namespace Lab7_prog_CSharp
 {
@@ -128,28 +129,45 @@ namespace Lab7_prog_CSharp
 						Console.WriteLine("Последний уникальный ID: " + (s = Koleso.id_return().ToString("000000")));
 						Console.WriteLine("\nОбщее количество созданных колес: " + Koleso.kolvo_koles());
 
-						Console.WriteLine("\n\n1) Ввод собственных данных о колесах\n2) Создание по конструктору\n3) Удаление");
+						Console.WriteLine("\n\n1) Ввод собственных данных о колесах\n2) Создание по конструктору");
 						menu = Console.ReadKey().KeyChar;
 					} while (menu < '1' || menu > '3');
 					if (menu == '1')
 					{
 						Kolesiko.new_koleso_info();
-						Kolesiko.prosmotr_koleso();
-						Console.WriteLine("Информация о колесах успешно добавлена");
 					}
 					else if (menu == '2')
 					{
 						Kolesiko.new_koleso(225, 55, 17, "Литье");
-						Kolesiko.prosmotr_koleso();
-						Console.WriteLine("Информация о колесах успешно добавлена");
+					}
+					Console.Clear();
+					Kolesiko.prosmotr_koleso();
+					Console.WriteLine("Информация о колесах успешно добавлена");
+					Console.Write("\n\nВыберите тип запасного колеса: \n1) Полноразмерное\n2) Докатка\n3) Отсутствует");
+					
+					menu = Console.ReadKey().KeyChar;
+					Koleso_Zapaska zapaska = new Koleso_Zapaska();
+					if (menu == '1')
+                    {
+						zapaska.set_new();
+						zapaska.vid_set("Полноразмерное");
+                    }
+					else if (menu == '2')
+                    {
+						zapaska.new_koleso_info();
+						zapaska.vid_set("Докатка");
 					}
 					else if (menu == '3')
                     {
-						if (Koleso.kolvo_koles() > 0)
-						{
-							Koleso.koleso_del();
-						}
-                    }
+						zapaska.vid_set("Отсутствует");
+					}
+					Console.Clear();
+					zapaska.print();
+					if (menu != '3')
+                    {
+						zapaska.prosmotr_koleso();
+					}
+
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}
@@ -157,7 +175,12 @@ namespace Lab7_prog_CSharp
 
 				else if (glmenu == '5')
                 {
+					
 					Console.Clear();
+					Koleso_Zapaska Zapaska = new Koleso_Zapaska();
+					Zapaska.new_koleso(55, 225, 17, "Литье");
+					Zapaska.prosmotr_koleso();
+					/*
 					Koleso koli1 = new Koleso();
 					Koleso koli = new Koleso(12);
 					Console.WriteLine("Конструктор без параметров: ");
@@ -166,6 +189,7 @@ namespace Lab7_prog_CSharp
 					koli.prosmotr_koleso();
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
+					*/
 				}
 
 

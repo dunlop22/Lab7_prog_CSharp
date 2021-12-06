@@ -245,11 +245,11 @@ namespace info_koleso
 			this.othoschenie = 0;
 		}
 
-		private int visota = 55;
-		private int shirina = 225;
-		private int diametr = 17;
+		public int visota = 55;
+		public int shirina = 225;
+		public int diametr = 17;
 		private int othoschenie;
-		private string tip_diska = "Литье";
+		public string tip_diska = "Литье";
 		private Koleso[] Koleso_Mass = new Koleso[1];
 		private int id;
 		private static int kolvo_kolesa = 0;
