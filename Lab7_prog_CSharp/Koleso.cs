@@ -194,7 +194,7 @@ namespace info_koleso
 		public void prosmotr_koleso()
 		{
 			string s;
-			Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska);
+			Console.WriteLine("\nИНФОРМАЦИЯ О КОЛЕСАХ\n\nШирина колеса: " + shirina + "\nДиаметр колеса: " + diametr + "\nВысота колеса: " + visota + "\nТип диска: " + tip_diska + "\nКоличество проколов в шине: " + kolvo_prokolov);
 			if (this.othoschenie != 0)
 			{
 				Console.WriteLine("Высота колеса (мм): " + othoschenie);
@@ -245,6 +245,12 @@ namespace info_koleso
 			this.othoschenie = 0;
 		}
 
+		public void izm_prokol(int prok)
+        {
+			this.kolvo_prokolov = prok;
+        }
+
+		protected int kolvo_prokolov = 0;
 		public int visota = 55;
 		public int shirina = 225;
 		public int diametr = 17;

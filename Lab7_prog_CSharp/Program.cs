@@ -161,6 +161,17 @@ namespace Lab7_prog_CSharp
                     {
 						zapaska.vid_set("Отсутствует");
 					}
+					if (menu != '3')
+                    {
+						Console.Clear();
+						Console.Write("Введите количество проколов в шине: ");
+						int prokol;
+						do
+						{
+							prokol = Convert.ToInt32(Console.ReadLine());
+						} while (prokol < 0);
+						zapaska.izm_prokol(prokol);
+					}
 					Console.Clear();
 					zapaska.print();
 					if (menu != '3')
