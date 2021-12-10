@@ -189,6 +189,8 @@ namespace Lab7_prog_CSharp
 					
 					Console.Clear();
 					Koleso_Zapaska Zapaska = new Koleso_Zapaska();
+					
+					
 					Zapaska.new_koleso(55, 225, 17, "Литье");
 					Zapaska.prosmotr_koleso();
 					/*
@@ -232,6 +234,15 @@ namespace Lab7_prog_CSharp
 				else if (glmenu == '6')
                 {
 					Console.Clear();
+					Koleso_Zapaska Zapaska = new Koleso_Zapaska();
+					Koleso kol1 = new Koleso();
+					Zapaska.set(13, 75, 185, "Литье", "Докатка");
+					kol1.set(17, 55, 255, "Литье");
+					Zapaska.print();
+					Zapaska.prosmotr_koleso();
+					Console.WriteLine("\n\n");
+					kol1.prosmotr_koleso();
+					/*
 					Koleso[] koleso_mass = new Koleso[3];
 					for (int i = 0;i < 3;  i++)
                     {
@@ -239,6 +250,7 @@ namespace Lab7_prog_CSharp
 						Console.WriteLine("\nКолесо №" + (i + 1));
 						koleso_mass[i].prosmotr_koleso();
                     }
+					*/
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}
@@ -266,7 +278,11 @@ namespace Lab7_prog_CSharp
 				else if (glmenu == '7')
                 {
 					Console.Clear();
-					Koleso Koles1 = new Koleso();
+					Koleso_Zapaska Zapaska = new Koleso_Zapaska(17, 45, 265, "Литье", "Полноразмерное");
+					Zapaska.print();
+					Console.WriteLine(Zapaska);
+					//Zapaska.prosmotr_koleso();
+					/*Koleso Koles1 = new Koleso();
 					Koleso Koles2 = new Koleso();
 					Koles1.new_koleso(17, 55, 225, "Литье");
 					Koles2 = Koles1;
@@ -281,6 +297,7 @@ namespace Lab7_prog_CSharp
 					Koles1.prosmotr_koleso();
 					Console.WriteLine("\nКолесо №2:");
 					Koles2.prosmotr_koleso();
+					*/
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}

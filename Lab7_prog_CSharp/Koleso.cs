@@ -31,6 +31,14 @@ namespace info_koleso
 			Koleso_Mass[n] = kol1;
 		}
 
+		public void set (int diametr, int visota, int shirina, string tip_diska)
+        {
+			this.diametr = diametr;
+			this.visota = visota;
+			this.shirina = shirina;
+			this.tip_diska = tip_diska;
+        }
+
 		public int Diametr
         {
 			get 
@@ -191,6 +199,14 @@ namespace info_koleso
 			kolvo_kolesa = kolvo_kolesa + 1;
 		}
 
+
+		public override string ToString()
+		{
+			string s = "";
+			s += "\nШирина колеса: " + Convert.ToString(shirina) + "\nДиаметр колеса: " + Convert.ToString(diametr) + "\nВысота колеса: " + Convert.ToString(visota) + "\nТип диска: " + Convert.ToString(tip_diska);
+			return s;
+		}
+
 		public void prosmotr_koleso()
 		{
 			string s;
@@ -245,6 +261,13 @@ namespace info_koleso
 			this.othoschenie = 0;
 		}
 
+		public Koleso(int diametr, int visota, int shirina, string tip_diska)
+        {
+			this.diametr = diametr;
+			this.visota = visota;
+			this.shirina = shirina;
+			this.tip_diska = tip_diska;
+        }
 		public void izm_prokol(int prok)
         {
 			this.kolvo_prokolov = prok;

@@ -10,6 +10,18 @@ namespace info_koleso_zapaska
     class Koleso_Zapaska : Koleso
     {
         public string vid;
+        public Koleso_Zapaska()
+        {
+
+        }
+        public void set (int diametr, int visota, int shirina, string tip_diska, string vid)
+        {
+            this.diametr = diametr;
+            this.shirina = shirina;
+            this.visota = visota;
+            this.tip_diska = tip_diska;
+            this.vid = vid;
+        }
 
         public void print()
         {
@@ -26,6 +38,11 @@ namespace info_koleso_zapaska
             this.visota = base.visota;
             this.tip_diska = base.tip_diska;
 
+        }
+
+        public Koleso_Zapaska(int diametr, int visota, int shirina, string tip_diska, string vid) : base(diametr, visota, shirina, tip_diska)
+        {
+            this.vid = vid;
         }
     }
 }
