@@ -46,7 +46,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Инициализация массива конструктором с одним параметром полей\n7) Конструктор копирования\n8) Массив\n9) Перегрузки\n0) Строки\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Инициализация массива конструктором с одним параметром полей\n7) Конструктор копирования\n8) Абстрактный класс\n9) Перегрузки\n0) Строки\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -304,6 +304,12 @@ namespace Lab7_prog_CSharp
 				else if (glmenu == '8')
                 {
 					Console.Clear();
+					Koleso kol = new Koleso(17, 55, 225, "Литье");
+
+					Console.WriteLine("Периметр колеса: " + kol.perimetr() + "мм");
+					Console.WriteLine("Объем колеса: " + Math.Round(kol.obem(), 2) + "м^3\n");
+					kol.prosmotr_koleso();
+					/*
 					Console.Write("Введите количество колес для создания массива: ");
 					Koleso[] Kol_Massiv = new Koleso[10];
 					Koleso temp = new Koleso();
@@ -323,6 +329,7 @@ namespace Lab7_prog_CSharp
 						Kol_Massiv[i] = temp;
 						Kol_Massiv[i].prosmotr_koleso();
 					}
+					*/
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}

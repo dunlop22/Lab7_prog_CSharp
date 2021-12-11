@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using info_Koleso_inf;
 
 namespace info_koleso
 {
-    class Koleso
+    class Koleso : Koleso_inf
 	{
 		public static Koleso operator ++(Koleso Kol1)
 		{
@@ -15,6 +15,20 @@ namespace info_koleso
 			kol.diametr = Kol1.diametr + 1;
 			return kol;
 		}
+
+
+		public override double obem()
+		{
+			double duim = 25.375;
+			return (Math.PI * (this.diametr * duim / 1000) * (this.diametr * duim / 1000) * this.shirina / 1000);
+		}
+		public override int perimetr()
+        {
+			double duim = 25.375;
+
+			return (((this.diametr / 2 * (int)duim) + this.visota * this.shirina / 100) * 2 * (int)Math.PI);
+		}
+
 
 		public void Koleso_Massiv_Prosmotr(int n)
 		{
