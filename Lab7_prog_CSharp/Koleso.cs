@@ -29,6 +29,10 @@ namespace info_koleso
 			return (((this.diametr / 2 * (int)duim) + this.visota * this.shirina / 100) * 2 * (int)Math.PI);
 		}
 
+		public object Copy()
+        {
+			return new Koleso(diametr, shirina, visota, tip_diska);
+		}
 
 		public void Koleso_Massiv_Prosmotr(int n)
 		{

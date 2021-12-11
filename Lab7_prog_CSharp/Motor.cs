@@ -5,7 +5,12 @@ using System.Text;
 
 namespace info_motor
 {
-	class Motor
+	interface KWT
+	{
+		double Max_KWT();
+		double KWT();
+	}
+	class Motor : KWT
 	{
 		
 		public static Motor operator +(Motor mot1, Motor mot2)
@@ -17,6 +22,24 @@ namespace info_motor
 			novii.rab_obem = novii.rab_obem + mot2.rab_obem;
 			return (novii);
         }
+
+		public double Max_KWT()	//вывод максимально возможной мощности (в квтч) после апгрейда
+        {
+			if (this.rab_obem > 2.0)
+            {
+				return (this.koni * 1.2 / 1.3596);
+			}
+			else
+            {
+				return (this.koni * 1.1 / 1.3596);
+			}
+			
+        }
+
+		public double KWT()	//вывод текущей мощности (в квтч)
+		{
+			return (this.koni / 1.3596);
+		}
 
 		public void New_Motor_Info()
 		{

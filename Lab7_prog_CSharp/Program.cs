@@ -46,7 +46,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Инициализация массива конструктором с одним параметром полей\n7) Конструктор копирования\n8) Абстрактный класс\n9) Перегрузки\n0) Строки\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Инициализация массива конструктором с одним параметром полей\n7) Конструктор копирования\n8) Абстрактный класс\n9) Интерфейс\n0) Строки\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -335,9 +335,21 @@ namespace Lab7_prog_CSharp
 				}
 				else if (glmenu == '9')
                 {
-					int podmenu;
+
 					Console.Clear();
-					//Koleso Kol_Mass[4][4];
+					Motor mot1 = new Motor();
+					Motor mot2 = new Motor();
+					mot1.new_motor("2GR-FE", 249, 3.5, 4, 10, 6);
+					mot2.new_motor("FB20", 150, 2, 4, 7, 4);
+					Console.WriteLine("Двигатель №1");
+					Console.WriteLine("Максимальное значение мощности в кВТ: " + Math.Round(mot1.Max_KWT(), 1));
+					Console.WriteLine("Текущее значение мощности в кВТ: " + Math.Round(mot1.KWT()), 1);
+
+					Console.WriteLine("\n\nДвигатель №2");
+					Console.WriteLine("Максимальное значение мощности в кВТ: " + Math.Round(mot2.Max_KWT()), 1);
+					Console.WriteLine("Текущее значение мощности в кВТ: " + Math.Round(mot2.KWT()), 1); 
+					/*//Koleso Kol_Mass[4][4];
+					int podmenu;
 					Koleso[,] Kol_Massiv = new Koleso[4,4];
 					Koleso temp = new Koleso();
 					for (int i =0;i<4;i++)
@@ -417,14 +429,47 @@ namespace Lab7_prog_CSharp
 						Kol1.prosmotr_koleso();
 						Console.WriteLine("Колесо №2 ПОСЛЕ: ");
 						Kol2.prosmotr_koleso();
-					}
+					}*/
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
-					Console.ReadKey(true);*/
+					Console.ReadKey(true);
 				}
 				else if (glmenu == '0')
                 {
 					Console.Clear();
-					int n;
+					Koleso kol1 = new Koleso();
+					Koleso kol2 = new Koleso();
+					kol1.new_koleso(55, 225, 17, "Литье");
+					kol2.new_koleso(55, 245, 19, "Литье");
+					Console.WriteLine("Колесо №1 до мелкого копирования:");
+					kol1.prosmotr_koleso();
+					Console.WriteLine("Колесо №2 до мелкого копирования:");
+					kol2.prosmotr_koleso();
+					kol2 = kol1;
+					kol2.new_koleso(35, 285, 21, "Ковка");
+
+					Console.WriteLine("\n\n**********************************************\nКолесо №1 после мелкого копирования:");
+					kol1.prosmotr_koleso();
+					Console.WriteLine("Колесо №2 после мелкого копирования:");
+					kol2.prosmotr_koleso();
+
+
+					Console.WriteLine("\n\n****************************************************************\n\n");
+
+					Koleso kol3 = new Koleso();
+					Koleso kol4 = new Koleso();
+					kol3.new_koleso(55, 225, 17, "Литье");
+					kol4.new_koleso(55, 245, 19, "Литье");
+					Console.WriteLine("Колесо №1 до глубоко копирования:");
+					kol3.prosmotr_koleso();
+					Console.WriteLine("Колесо №2 до глубоко копирования:");
+					kol4.prosmotr_koleso();
+					kol4 = (Koleso)kol3.Copy();
+					kol4.new_koleso(55, 265, 21, "Ковка");
+					Console.WriteLine("\n\n**********************************************\nКолесо №1 после глубоко копирования:");
+					kol3.prosmotr_koleso();
+					Console.WriteLine("Колесо №2 после глубоко копирования:");
+					kol4.prosmotr_koleso();
+					/*int n;
 					string country = "Japan";
 					Console.Write("Введите количество создаваемых колес: ");
 					do
@@ -445,7 +490,7 @@ namespace Lab7_prog_CSharp
 						Kolesiko1.Koleso_Massiv(i, Koles1);
 					}
 					Kolesiko1.Koleso_Massiv_Prosmotr(n);
-					
+					*/
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
 					Console.ReadKey(true);
 				}
