@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -100,7 +101,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Сравнение (Шаблон)\n7) Сумма (Шаблон)\n8) Делегат\n9) Интерфейс\n0) Строки\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Сравнение (Шаблон)\n7) Сумма (Шаблон)\n8) Делегат\n9) Сортировка (Контейнер)\n0) Строки\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -470,8 +471,43 @@ namespace Lab7_prog_CSharp
 				}
 				else if (glmenu == '9')
                 {
-
 					Console.Clear();
+					/*Лабораторная работа 14*/
+
+					Koleso kol1 = new Koleso();
+					Koleso kol2 = new Koleso();
+					Koleso kol3 = new Koleso();
+					Koleso_Zapaska zap1 = new Koleso_Zapaska();
+					Koleso_Zapaska zap2 = new Koleso_Zapaska();
+					Koleso_Zapaska zap3 = new Koleso_Zapaska();
+					kol1.new_koleso(55, 235, 17, "Литье");
+					kol2.new_koleso(285, 55, 20, "Литье");
+					kol3.new_koleso(265, 55, 17, "Литье");
+					zap1.new_koleso(245, 55, 18, "Ковка");
+					zap2.new_koleso(185, 55, 15, "Ковка");
+					zap3.new_koleso(215, 25, 18, "Ковка");
+					Koleso[] Massiv__koles = { kol3, kol2, zap2, zap1, zap3, kol1 };
+					
+					Console.Write("Сортировка колес по возрастанию окружности колеса:\n");
+					
+					foreach (Koleso koleso in Massiv__koles)
+					{
+						koleso.prosmotr_koleso();
+						Console.Write("\n" + koleso.perimetr());
+						Console.WriteLine();
+					}
+
+					Array.Sort(Massiv__koles);
+
+					Console.Write("\n\n\nСписок колес после сортировки по возрастанию окружности колеса:\n");
+					foreach (Koleso koleso in Massiv__koles)
+					{
+						koleso.prosmotr_koleso();
+						Console.Write("\nОкружность колеса: " + koleso.perimetr());
+						Console.WriteLine();
+					}
+
+					/*
 					Motor mot1 = new Motor();
 					Motor mot2 = new Motor();
 					mot1.new_motor("2GR-FE", 249, 3.5, 4, 10, 6);
@@ -483,6 +519,7 @@ namespace Lab7_prog_CSharp
 					Console.WriteLine("\n\nДвигатель №2");
 					Console.WriteLine("Максимальное значение мощности в кВТ: " + Math.Round(mot2.Max_KWT()), 1);
 					Console.WriteLine("Текущее значение мощности в кВТ: " + Math.Round(mot2.KWT()), 1); 
+					*/
 					/*//Koleso Kol_Mass[4][4];
 					int podmenu;
 					Koleso[,] Kol_Massiv = new Koleso[4,4];

@@ -7,8 +7,22 @@ using info_Koleso_inf;
 
 namespace info_koleso
 {
-    class Koleso : Koleso_inf
+    class Koleso : Koleso_inf, IComparable
 	{
+		public int CompareTo(Object kol1)
+		{
+			Koleso kol_1 = this;
+			Koleso kol_2 = (Koleso)kol1;
+			if (kol_1.perimetr() < kol_2.perimetr())
+			{
+				return -1;
+			}
+			else
+			{
+				return 1;
+			}
+		}
+
 		public static Koleso operator ++(Koleso Kol1)
 		{
 			Koleso kol = new Koleso();
