@@ -53,7 +53,19 @@ namespace Lab7_prog_CSharp
 	}
 	class Program
     {
-		
+		delegate double Action(Koleso kol);	//лабораторная работа 13 делегат
+
+		public static double obem(Koleso kol)
+        {
+			double duim = 25.375;
+			return (Math.PI * (kol.diametr * duim / 1000) * (kol.diametr * duim / 1000) * kol.shirina / 1000);
+        }
+
+		public static double perimetr(Koleso kol)
+        {
+			double duim = 25.375;
+			return (((kol.diametr / 2 * duim) + kol.visota * kol.shirina / 100) * 2 * Math.PI);
+		}
 
 		static void table_print(Koleso[,] Kol_Massiv)
         {
@@ -396,34 +408,65 @@ namespace Lab7_prog_CSharp
 				else if (glmenu == '8')
                 {
 					Console.Clear();
-					Koleso kol = new Koleso(17, 55, 225, "Литье");
-
-					Console.WriteLine("Периметр колеса: " + kol.perimetr() + "мм");
-					Console.WriteLine("Объем колеса: " + Math.Round(kol.obem(), 2) + "м^3\n");
-					kol.prosmotr_koleso();
-					/*
-					Console.Write("Введите количество колес для создания массива: ");
-					Koleso[] Kol_Massiv = new Koleso[10];
-					Koleso temp = new Koleso();
-					int n;
+					/*Лабораторная работа 13*/
+					Koleso koleso = new Koleso();
+					koleso.new_koleso(55, 225, 17, "Литье");
+					int func = 0;
+					Action rezultat = null;
+					//Action rezultat = new Action(perimetr);
 					do
 					{
-						n = Convert.ToInt32(Console.ReadLine());
-						if (n < 0)
-						{
-							Console.Write("Неверно введено значение, попробуйте еще: ");
+						Console.Write("\n\n1) Объем колеса\n2) Периметр колеса\n3)Выход\n");
+						func = Console.ReadKey().KeyChar;
+						if (func == '1')
+                        {
+							//Action rezultat = new Action(perimetr);
+							rezultat = new Action(obem);
+							Console.Write("\n\nОбъем колеса (м^3): ");
 						}
-					} while (n < 0 || n > 10);
-					
-					for (int i = 0 ; i < n; i++)
+						else if (func == '2')
+                        {
+							//Action rezultat = new Action(perimetr);
+							rezultat = new Action(perimetr);
+							Console.Write("\n\nПериметр колеса (мм): ");
+						}
+						if (func == '2' || func == '1')
+						{
+							Console.Write(rezultat(koleso));
+						}
+					} while (func != '3');
+
+					/*
+                    Koleso kol = new Koleso(17, 55, 225, "Литье");
+
+                    Console.WriteLine("Периметр колеса: " + kol.perimetr() + "мм");
+                    Console.WriteLine("Объем колеса: " + Math.Round(kol.obem(), 2) + "м^3\n");
+                    kol.prosmotr_koleso();
+                    */
+					/*
+                    Console.Write("Введите количество колес для создания массива: ");
+                    Koleso[] Kol_Massiv = new Koleso[10];
+                    Koleso temp = new Koleso();
+                    int n;
+                    do
                     {
-						temp.new_koleso(30 + i * 5, 130 + i * 5, 13 + i * 2, "Enkei №"  + (i + 1) + " Japan");
-						Kol_Massiv[i] = temp;
-						Kol_Massiv[i].prosmotr_koleso();
-					}
-					*/
+                        n = Convert.ToInt32(Console.ReadLine());
+                        if (n < 0)
+                        {
+                            Console.Write("Неверно введено значение, попробуйте еще: ");
+                        }
+                    } while (n < 0 || n > 10);
+
+                    for (int i = 0 ; i < n; i++)
+                    {
+                        temp.new_koleso(30 + i * 5, 130 + i * 5, 13 + i * 2, "Enkei №"  + (i + 1) + " Japan");
+                        Kol_Massiv[i] = temp;
+                        Kol_Massiv[i].prosmotr_koleso();
+                    }
+                    */
 					Console.WriteLine("\n\nНажмите любую клавишу для возврата в меню.");
-					Console.ReadKey(true);
+
+	                Console.ReadKey(true);
 				}
 				else if (glmenu == '9')
                 {
