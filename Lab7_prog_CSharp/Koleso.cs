@@ -15,6 +15,29 @@ namespace info_koleso
 			kol.diametr = Kol1.diametr + 1;
 			return kol;
 		}
+		public static bool operator >(Koleso k1, Koleso k2)
+		{
+			if ((k1.diametr * 25.4 + k1.visota / 100 * k1.shirina) > (k2.diametr * 25.4 + k2.visota / 100 * k2.shirina))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public static bool operator <(Koleso k1, Koleso k2)
+		{
+			if ((k1.diametr * 25.4 + k1.visota / 100 * k1.shirina) < ( k2.diametr * 25.4 + k2.visota / 100 * k2.shirina))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 
 
 		public override double obem()

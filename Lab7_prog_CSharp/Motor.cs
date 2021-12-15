@@ -12,8 +12,8 @@ namespace info_motor
 	}
 	class Motor : KWT
 	{
-		
-		public static Motor operator +(Motor mot1, Motor mot2)
+		/*
+		 public static Motor operator +(Motor mot1, Motor mot2)
         {
 
 			Motor novii = new Motor();
@@ -22,6 +22,12 @@ namespace info_motor
 			novii.rab_obem = novii.rab_obem + mot2.rab_obem;
 			return (novii);
         }
+		*/
+
+		public static double operator +(Motor mot1, Motor mot2)
+		{
+			return (mot1.koni + mot2.koni);
+		}
 
 		public double Max_KWT()	//вывод максимально возможной мощности (в квтч) после апгрейда
         {

@@ -11,8 +11,50 @@ using info_koleso_zapaska;
 
 namespace Lab7_prog_CSharp
 {
-    class Program
+	class Sravnenie<T> where T : Koleso
+	{
+		public Sravnenie()
+		{
+		}
+		public int Bolshe(T t1, T t2)
+		{
+			if (t1 > t2)
+			{
+				return 1;
+			}
+
+			else
+			{
+				return 0;
+			}
+        }
+        public int Menshe(T t1, T t2)
+		{
+			if (t1 < t2)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+	}
+
+	class Summa<T> where T : Motor
+	{
+		public Summa()
+		{
+		}
+		public double Sum(T t1, T t2)
+		{
+			return (t1 + t2);
+		}
+	}
+	class Program
     {
+		
+
 		static void table_print(Koleso[,] Kol_Massiv)
         {
 			for (int i = 0; i < 4; i++)
@@ -46,7 +88,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Инициализация массива конструктором с одним параметром полей\n7) Конструктор копирования\n8) Абстрактный класс\n9) Интерфейс\n0) Строки\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Сравнение (Шаблон)\n7) Сумма (Шаблон)\n8) Делегат\n9) Интерфейс\n0) Строки\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -234,6 +276,38 @@ namespace Lab7_prog_CSharp
 				else if (glmenu == '6')
                 {
 					Console.Clear();
+					/*Лабораторная работа 12*/
+
+					Koleso kol1 = new Koleso();
+					Koleso kol2 = new Koleso();
+					kol1.new_koleso(55, 265, 18, "Литье");
+					kol2.new_koleso(65, 185, 15, "Ковка");
+					Console.WriteLine("Колесо №1");
+					kol1.prosmotr_koleso();
+					Console.WriteLine("\n\nКолесо №2");
+					kol2.prosmotr_koleso();
+					Sravnenie<Koleso> Sravni = new Sravnenie<Koleso>();
+					Console.WriteLine("\n\n\nКолесо с большей окружностью:");
+					if (Sravni.Bolshe(kol1, kol2) == 1)
+                    {
+						kol1.prosmotr_koleso();
+                    }
+                    else
+                    {
+						kol2.prosmotr_koleso();
+                    }
+
+					Console.WriteLine("\n\n\nКолесо с меньшей окружностью:");
+					if (Sravni.Menshe(kol1, kol2) == 1)
+					{
+						kol1.prosmotr_koleso();
+					}
+					else
+					{
+						kol2.prosmotr_koleso();
+					}
+
+					/*
 					Koleso_Zapaska Zapaska = new Koleso_Zapaska();
 					Koleso kol1 = new Koleso();
 					Zapaska.set(13, 75, 185, "Литье", "Докатка");
@@ -242,6 +316,7 @@ namespace Lab7_prog_CSharp
 					Zapaska.prosmotr_koleso();
 					Console.WriteLine("\n\n");
 					kol1.prosmotr_koleso();
+					*/
 					/*
 					Koleso[] koleso_mass = new Koleso[3];
 					for (int i = 0;i < 3;  i++)
@@ -278,9 +353,26 @@ namespace Lab7_prog_CSharp
 				else if (glmenu == '7')
                 {
 					Console.Clear();
+					/*Лабораторная работа 13*/
+					
+					Motor mot1 = new Motor();
+					Motor mot2 = new Motor();
+
+					mot1.new_motor("2GR-FE", 249, 3.5, 4, 10, 6);
+					mot2.new_motor("FB20", 150, 2.0, 4, 10, 4);
+					Console.WriteLine("Двигатель №1:");
+					mot1.prosmotr_motor();
+					Console.WriteLine("\n\nДвигатель №2:");
+					mot2.prosmotr_motor();
+
+					Summa<Motor> Vsego = new Summa<Motor>();
+					Console.WriteLine("\n\nОбщее количество лошадиных сил в 2-х двигателя: " + Vsego.Sum(mot1, mot2));
+
+					/*
 					Koleso_Zapaska Zapaska = new Koleso_Zapaska(17, 45, 265, "Литье", "Полноразмерное");
 					Zapaska.print();
 					Console.WriteLine(Zapaska);
+					*/
 					//Zapaska.prosmotr_koleso();
 					/*Koleso Koles1 = new Koleso();
 					Koleso Koles2 = new Koleso();
