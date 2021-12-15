@@ -52,8 +52,25 @@ namespace Lab7_prog_CSharp
 			return (t1 + t2);
 		}
 	}
+
+	
+
+
 	class Program
     {
+		public static int poisk(int temp, ArrayList Massiv_koles, int min, int max)	//лабораторная работа 14, поиск
+		{
+			for (; temp < Massiv_koles.Count; temp++)
+			{
+				Koleso koleso_test = (Koleso)Massiv_koles[temp];
+				if (koleso_test.diametr >= min && koleso_test.diametr <= max)
+				{
+					return temp;
+				}
+			}
+			return -1;  //не найден
+
+		}
 		delegate double Action(Koleso kol);	//лабораторная работа 13 делегат
 
 		public static double obem(Koleso kol)
@@ -101,7 +118,7 @@ namespace Lab7_prog_CSharp
 			do
 			{
 				Console.Clear();
-				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Сравнение (Шаблон)\n7) Сумма (Шаблон)\n8) Делегат\n9) Сортировка (Контейнер)\n0) Строки\n\nESC - выход");
+				Console.WriteLine("1) Общее\n2) Двигатель\n3) Коробка\n4) Колеса\n5) Конст\n6) Сравнение (Шаблон)\n7) Сумма (Шаблон)\n8) Делегат\n9) Сортировка (Контейнер)\n0) Поиск (Контейнер)\n\nESC - выход");
 				glmenu = Console.ReadKey().KeyChar;
 				//Console.ReadKey(true);			ожидание нажатия
 				if (glmenu == '1')
@@ -608,6 +625,74 @@ namespace Lab7_prog_CSharp
 				else if (glmenu == '0')
                 {
 					Console.Clear();
+					/*Лабораторная работа 14*/
+
+					Koleso kol1 = new Koleso();
+					Koleso kol2 = new Koleso();
+					Koleso kol3 = new Koleso();
+					Koleso_Zapaska zap1 = new Koleso_Zapaska();
+					Koleso_Zapaska zap2 = new Koleso_Zapaska();
+					Koleso_Zapaska zap3 = new Koleso_Zapaska();
+					kol1.new_koleso(55, 235, 17, "Литье");
+					kol2.new_koleso(285, 55, 20, "Литье");
+					kol3.new_koleso(265, 55, 17, "Литье");
+					zap1.new_koleso(245, 55, 18, "Ковка");
+					zap2.new_koleso(185, 55, 15, "Ковка");
+					zap3.new_koleso(215, 25, 18, "Ковка");
+
+					ArrayList Massiv_koles = new ArrayList();
+					Massiv_koles.Clear();
+					Massiv_koles.Add(kol3);
+					Massiv_koles.Add(kol1);
+					Massiv_koles.Add(zap2);
+					Massiv_koles.Add(kol2);
+					Massiv_koles.Add(zap1);
+					Massiv_koles.Add(zap3);
+
+					foreach (Koleso koleso in Massiv_koles)
+					{
+						koleso.prosmotr_koleso();
+						Console.WriteLine();
+					}
+
+					int min, max;
+					Console.Write("\n\nВведите минимальное значение диаметра колеса для поиска: ");
+					do
+					{
+						min = Convert.ToInt32(Console.ReadLine());
+						if (min < 0)
+						{
+							Console.Write("Данное значение недопустимо.\nПовторите ввод: ");
+						}
+					} while (min < 0);
+
+					Console.Write("Введите максимальное значение диаметра колеса для поиска: ");
+					do
+					{
+						max = Convert.ToInt32(Console.ReadLine());
+						if (max < min)
+						{
+							Console.Write("Данное значение недопустимо.\nПовторите ввод: ");
+						}
+					} while (max < 0 && max < min);
+
+					Console.Write("\n\n\nКолеса, удовлетворяющие запросу:\n\n\n");
+
+					int number;
+					for (int i = 0; i < Massiv_koles.Count; i++)
+					{
+						
+						number = poisk(i, Massiv_koles, min, max);
+						if (number != -1)	//найден подходящий элемент
+						{
+							Koleso koleso_test = (Koleso)Massiv_koles[number];
+							koleso_test.prosmotr_koleso();
+							Console.WriteLine();
+							i = number;
+						}
+					}
+
+					/*
 					Koleso kol1 = new Koleso();
 					Koleso kol2 = new Koleso();
 					kol1.new_koleso(55, 225, 17, "Литье");
@@ -641,6 +726,7 @@ namespace Lab7_prog_CSharp
 					kol3.prosmotr_koleso();
 					Console.WriteLine("Колесо №2 после глубоко копирования:");
 					kol4.prosmotr_koleso();
+					*/
 					/*int n;
 					string country = "Japan";
 					Console.Write("Введите количество создаваемых колес: ");
